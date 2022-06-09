@@ -7,8 +7,10 @@ metadata:
   labels:
     {{- include "tolgee.labels" . | nindent 4 }}
 spec:
+  {{- if .Values.tolgee.persistence.accessMode }}
   accessModes:
     - {{ .Values.tolgee.persistence.accessMode | quote }}
+  {{- end }}
   resources:
     requests:
       storage: {{ .Values.tolgee.persistence.size | quote }}
