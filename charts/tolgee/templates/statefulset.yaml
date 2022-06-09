@@ -18,6 +18,7 @@ spec:
       labels:
         {{- include "tolgee.selectorLabels" . | nindent 8 }}
     spec:
+      serviceName: {{ include "tolgee.fullname" . }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
