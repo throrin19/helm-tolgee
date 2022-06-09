@@ -11,7 +11,5 @@ jobs:
     steps:
       - name: Helm Chart Releaser
         uses: helm/chart-releaser-action@v1.4.0
-        with:
-          charts_dir: '.'
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
