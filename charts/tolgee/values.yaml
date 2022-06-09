@@ -77,14 +77,14 @@ affinity: {}
 postgresql:
   enabled: true
   architecture: "standalone"
-  postgresqlDatabase: "tolgee"
-  postgresqlUsername: "tolgee"
-  postgresqlPassword: "tolgee_password" # MUST be replaced with some secret password! Don't use this in production
-  postgresqlPostgresPassword: "root_password" # MUST be replaced with some secret password! Don't use this in production
-  persistence:
-    enabled: true
-    storageClass: ""
-    size: 1Gi
+  auth:
+    postgresPassword: ""
+    database: postgres
+    username: tolgee
+    password: tolgee_password # MUST be replaced with some secret password! Don't use this in production
+  primary:
+    persistence: 
+      size: 1Gi
 
 tolgee:
   envs: []
