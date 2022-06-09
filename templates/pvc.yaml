@@ -1,0 +1,23 @@
+{{- if .Values.tolgee.persistence.enabled -}}
+{{- if not .Values.tolgee.persistence.existingClaim -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "tolgee.fullname" . }}-pvc
+  labels:
+    {{- include "tolgee.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.tolgee.persistence.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.tolgee.persistence.size | quote }}
+{{- if .Values.tolgee.persistence.storageClass }}
+{{- if (eq "-" .Values.tolgee.persistence.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.tolgee.persistence.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,12 @@
+apiVersion: v2
+name: tolgee
+description: This is the unofficial helm package for Tolgee.io project.
+type: application
+version: 0.2.0
+appVersion: "2.30.2"
+dependencies:
+  - name: postgresql
+    repository: https://charts.bitnami.com/bitnami
+    version: 11.6.5
+    alias: postgresql
+    condition: postgresql.enabled
