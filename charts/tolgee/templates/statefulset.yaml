@@ -50,9 +50,9 @@ spec:
             - name: "spring.datasource.url"
               value: 'jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.postgresqlDatabase }}'
             - name: "spring.datasource.username"
-              value: {{ .Values.postgresql.postgresqlUsername }}
+              value: {{ .Values.postgresql.auth.username }}
             - name: "spring.datasource.password"
-              value: {{ .Values.postgresql.postgresqlPassword }}
+              value: {{ .Values.postgresql.auth.password }}
             {{- range $key, $value := .Values.tolgee.envs }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
