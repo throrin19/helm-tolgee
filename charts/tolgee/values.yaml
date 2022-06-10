@@ -8,7 +8,7 @@ image:
   repository: tolgee/tolgee
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 2.30.2
+  tag: v2.30.2
 
 serviceAccount:
   # Specifies whether a service account should be created
