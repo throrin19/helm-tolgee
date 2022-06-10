@@ -87,7 +87,7 @@ postgresql:
       size: 1Gi
 
 tolgee:
-  envs: []
+  env: {}
   persistence:
     enabled: true
     storageClass: ""
