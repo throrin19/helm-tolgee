@@ -37,10 +37,12 @@ spec:
               containerPort: 8080
               protocol: TCP
           livenessProbe:
+            initialDelaySeconds: 20
             httpGet:
               path: /
               port: http
           readinessProbe:
+            initialDelaySeconds: 15
             httpGet:
               path: /
               port: http

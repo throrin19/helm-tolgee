@@ -11,21 +11,28 @@ This chart provide :
 
 ## Quick Start
 
+```bash
+helm repo add tolgee https://throrin19.github.io/helm-tolgee/
+
+helm install tolgee tolgee/tolgee \
+--set postgresql.auth.password=moreSecurePassword
+```
+
 ## Values
 
 | Value | Description | Default Value |
 | --- | --- | --- |
-| image.tag | Tolgee version | 2.30.2 |
+| image.tag | Tolgee version | 2.30.3 |
 | service.port | Service port | 8080 |
 | ingress.enabled | Enable or not Ingress | `false` |
 | tolgee.persistence.enabled | Activate or not postgres persistence | `true` |
 | tolgee.persistence.storageClass | PVC Storage class | - |
 | tolgee.persistence.size | PVC size | 1Gi |
 | postgresql.enabled | Enable or not postgres | `true` |
-| postgresql.postgresqlDatabase | Tolgee database | tolgee |
-| postgresql.postgresqlUsername | Tolgee Database user | tolgee |
-| postgresql.postgresqlPassword | Tolgee password | tolgee_password |
-| postgresql.postgresqlPostgresPassword | Root password | root_password |
-| postgresql.persistence.enabled | Activate or not postgres persistence | `true` |
-| postgresql.persistence.storageClass | PVC Storage class | - |
-| postgresql.persistence.size | PVC size | 1Gi |
+| postgresql.auth.database | Tolgee database | tolgee |
+| postgresql.auth.username | Tolgee Database user | tolgee |
+| postgresql.auth.password | Tolgee password | tolgee_password |
+| postgresql.auth.postgresPassword | Root password | root_password |
+| postgresql.primary.persistence.size | PVC size | 1Gi |
+
+> You can see all [postgres configs here](https://artifacthub.io/packages/helm/bitnami/postgresql)
