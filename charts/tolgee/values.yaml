@@ -79,7 +79,7 @@ postgresql:
   architecture: "standalone"
   auth:
     postgresPassword: ""
-    database: postgres
+    database: tolgee
     username: tolgee
     password: tolgee_password # MUST be replaced with some secret password! Don't use this in production
   primary:
