@@ -4,9 +4,9 @@ This is the unofficial helm package for [Tolgee.io](https://tolgee.io/) project.
 
 > With Tolgee, developers are not involved in localization process after the process of development itself. They develop the app, integrate Tolgee integration libraries and deploy an instance, where translators can change the localization texts in the context of web application. Texts are then synchronized with Tolgee server (REST API) and there is no need for developers to be part of the localization process.
 
-This chart provide :  
+This chart provide :
 
-- Tolgee 
+- Tolgee
 - PostgreSQL
 
 ## Quick Start
@@ -22,7 +22,7 @@ helm install tolgee tolgee/tolgee \
 
 | Value | Description | Default Value |
 | --- | --- | --- |
-| image.tag | Tolgee version | 2.30.3 |
+| image.tag | Tolgee version | 3.30.3 |
 | service.port | Service port | 8080 |
 | ingress.enabled | Enable or not Ingress | `false` |
 | tolgee.persistence.enabled | Activate or not postgres persistence | `true` |

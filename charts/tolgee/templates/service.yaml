@@ -4,6 +4,8 @@ metadata:
   name: {{ include "tolgee.fullname" . }}
   labels:
     {{- include "tolgee.labels" . | nindent 4 }}
+  annotations:
+    {{- include "tolgee.annotations" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
