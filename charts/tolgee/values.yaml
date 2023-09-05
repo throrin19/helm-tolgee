@@ -41,11 +41,7 @@ securityContext:
 service:
     type: ClusterIP
     port: 8080
-    annotations:
-        {
-            'cloud.google.com/neg': '{"ingress": true}',
-            'cloud.google.com/backend-config': '{"ports": {"8080":"tolgee"}}'
-        }
+    annotations: {}
 
 ingress:
     enabled: false
@@ -98,8 +94,8 @@ postgresql:
 tolgee:
     env: {}
     managedCertificate:
-        enabled: true
-        domains: ['tolgee.sisutech.dev']
+        enabled: false
+        domains: []
     persistence:
         enabled: true
         storageClass: ''
