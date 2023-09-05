@@ -7,7 +7,7 @@ This is the unofficial helm package for [Tolgee.io](https://tolgee.io/) project.
 This chart provide :
 
 - Tolgee
-- PostgreSQL
+- PostgreSQL or External PosgresSQL connection
 
 ## Quick Start
 
