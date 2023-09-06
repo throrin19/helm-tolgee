@@ -49,12 +49,25 @@ spec:
           env:
             - name: "tolgee.postgres-autostart.enabled"
               value: 'false'
+            {{- if .Values.postgresql.enabled }}
             - name: "spring.datasource.url"
               value: 'jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.postgresqlDatabase }}'
             - name: "spring.datasource.username"
               value: {{ .Values.postgresql.auth.username }}
             - name: "spring.datasource.password"
               value: {{ .Values.postgresql.auth.password }}
+            {{- else if eq .Values.postgresql.architecture  "external"}}{{- if not .Values.postgresql.enabled }}
+            - name: "spring.datasource.url"
+              value: 'jdbc:postgresql://{{ .Values.tolgee.postgresql.host }}:5432/{{ .Values.postgresql.postgresqlDatabase }}'
+            - name: "spring.datasource.username"
+              value: {{ .Values.postgresql.auth.username }}
+            - name: "spring.datasource.password"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresql.auth.secretName }}
+                  key: {{ .Values.postgresql.auth.secreetPasswordKey }}
+            {{- end}}
+            {{- end}}
             {{- range $key, $value := .Values.tolgee.env }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
