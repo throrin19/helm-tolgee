@@ -34,8 +34,6 @@ Session.vim
 
 # Chart dependencies
 **/charts/*.tgz
-Chart.lock
-**/charts
 *.lock
 
 # npm
