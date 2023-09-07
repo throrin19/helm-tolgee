@@ -80,13 +80,20 @@ tolerations: []
 affinity: {}
 
 postgresql:
-    enabled: true
+    standalone:
+        enabled: true
     architecture: 'standalone' # could be used 'external' for an external database
+    host: ''
     auth:
         postgresPassword: ''
         database: tolgee
         username: tolgee
         password: tolgee_password # MUST be replaced with some secret password! Don't use this in production
+        secret:
+            enabled: false
+            name: secretName
+            passwordKey: password
+            usernameKey: username
     primary:
         persistence:
             size: 1Gi
