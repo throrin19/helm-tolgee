@@ -94,6 +94,8 @@ postgresql:
             name: secretName
             passwordKey: password
             usernameKey: username
+            databaseKey: dbname
+            hostKey: dbhostname
     primary:
         persistence:
             size: 1Gi
