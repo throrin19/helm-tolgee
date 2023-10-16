@@ -50,12 +50,12 @@ spec:
             - name: "tolgee.postgres-autostart.enabled"
               value: 'false'
             {{- if .Values.postgresql.auth.secret.enabled }}
-            - name: "spring.datasource.url"
+            - name: "spring.datasource.host"
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.postgresql.auth.secret.name }}
                   key: {{ .Values.postgresql.auth.secret.hostKey }}
-            - name: "spring.datasource.url"
+            - name: "spring.datasource.database"
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.postgresql.auth.secret.name }}
@@ -76,7 +76,7 @@ spec:
               value: 'jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.database }}'
             {{- else }}
             - name: "spring.datasource.url"
-              value: 'jdbc:postgresql://{{ .Values.postgresql.host }}:5432/{{ .Values.postgresql.database }}'
+              value: 'jdbc:postgresql://${SPRING_DATASOURCE_HOST}:5432/${SPRING_DATASOURCE_DATABASE}'
             {{- end }}
             - name: "spring.datasource.username"
               value: {{ .Values.postgresql.auth.username }}
