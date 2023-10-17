@@ -23,18 +23,12 @@ helm install tolgee tolgee/tolgee \
 
 | Value                               | Description                                               | Default Value   |
 |-------------------------------------|-----------------------------------------------------------|-----------------|
-| image.tag                           | Tolgee version                                            | 3.30.0          |
+| image.tag                           | Tolgee version                                            | 3.33.0          |
 | service.port                        | Service port                                              | 8080            |
 | ingress.enabled                     | Enable or not Ingress                                     | `false`         |
 | tolgee.persistence.enabled          | Activate or not postgres persistence                      | `true`          |
 | tolgee.persistence.storageClass     | PVC Storage class                                         | -               |
 | tolgee.persistence.size             | PVC size                                                  | 1Gi             |
-| postgresql.host                     | Database host                                             | -               |
-| postgresql.auth.database            | Tolgee database                                           | tolgee          |
-| postgresql.standalone.enabled       | Enable or not postgres installation in kubernetes cluster | `true`          |
-| postgresql.auth.username            | Tolgee Database user                                      | tolgee          |
-| postgresql.auth.password            | Tolgee password                                           | tolgee_password |
-| postgresql.auth.postgresPassword    | Root password                                             | root_password   |
 | postgresql.auth.secret              | Secret file parameters to use                             | -               |
 | postgresql.auth.secret.enabled      | Enable or not the secret configuration file               | false           |
 | postgresql.auth.secret.name         | Secret file name                                          | -               |
@@ -43,5 +37,12 @@ helm install tolgee tolgee/tolgee \
 | postgresql.auth.secret.hostKey      | Database host                                             | dbhostname      |
 | postgresql.auth.secret.databasekey  | Tolgee database key                                       | dbname          |
 | postgresql.primary.persistence.size | PVC size                                                  | 1Gi             |
+| postgresql.host                     | Database host                                             | -               |
+| postgresql.auth.database            | Tolgee database                                           | tolgee          |
+| postgresql.standalone.enabled       | Enable or not postgres installation in kubernetes cluster | `true`          |
+| postgresql.auth.username            | Tolgee Database user                                      | tolgee          |
+| postgresql.auth.password            | Tolgee password                                           | tolgee_password |
+| postgresql.auth.postgresPassword    | Root password                                             | root_password   |
 
 > You can see all [postgres configs here](https://artifacthub.io/packages/helm/bitnami/postgresql)
+> More about [tolgee configs](https://tolgee.io/platform/self_hosting/configuration?config-format=yaml)
