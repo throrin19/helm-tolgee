@@ -71,7 +71,7 @@ spec:
                   name: {{ .Values.postgresql.auth.secret.name }}
                   key: {{ .Values.postgresql.auth.secret.passwordKey }}
             - name: "spring.datasource.url"
-              value: jdbc:postgresql://${SPRING_DATASOURCE_HOST}:5432/${SPRING_DATASOURCE_DATABASE}
+              value: jdbc:postgresql://${spring.datasource.host}:5432/${spring.datasource.database}
             {{- else }}
             - name: "spring.datasource.url"
               value: 'jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.database }}'
