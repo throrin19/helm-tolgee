@@ -70,14 +70,11 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.postgresql.auth.secret.name }}
                   key: {{ .Values.postgresql.auth.secret.passwordKey }}
-            {{- else }}
-            {{- if .Values.postgresql.standalone.enabled }}
-            - name: "spring.datasource.url"
-              value: 'jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.database }}'
-            {{- else }}
             - name: "spring.datasource.url"
               value: jdbc:postgresql://${SPRING_DATASOURCE_HOST}:5432/${SPRING_DATASOURCE_DATABASE}
-            {{- end }}
+            {{- else }}
+            - name: "spring.datasource.url"
+              value: 'jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.database }}'
             - name: "spring.datasource.username"
               value: {{ .Values.postgresql.auth.username }}
             - name: "spring.datasource.password"
