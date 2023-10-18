@@ -37,17 +37,17 @@ spec:
               containerPort: 8080
               protocol: TCP
           livenessProbe:
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             httpGet:
               path: /
               port: http
           readinessProbe:
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             httpGet:
               path: /
               port: http
           env:
-            - name: "tolgee-telemetry.enabled"
+            - name: "tolgee.telemetry.enabled"
               value: 'false'
             - name: "tolgee.postgres-autostart.enabled"
               value: 'false'
