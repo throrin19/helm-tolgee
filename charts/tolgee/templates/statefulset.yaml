@@ -81,6 +81,7 @@ spec:
               value: {{ .Values.postgresql.auth.username }}
             - name: "spring.datasource.password"
               value: {{ .Values.postgresql.auth.password }}
+            {{- end }}
             - name: "spring.web.cors.allow-credentials"
               value: "true"
             - name: "spring.web.cors.allowed-origins"
@@ -89,7 +90,6 @@ spec:
               value: "GET,POST,PUT,DELETE,HEAD,OPTIONS"
             - name: "spring.web.cors.allowed-headers"
               value: "*"
-            {{- end }}
             {{- range $key, $value := .Values.tolgee.env }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
