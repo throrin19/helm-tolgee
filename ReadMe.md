@@ -22,7 +22,7 @@ helm install tolgee tolgee/tolgee \
 
 | Value | Description | Default Value   |
 | --- | --- |-----------------|
-| image.tag | Tolgee version | 3.33.0          |
+| image.tag | Tolgee version | 3.37.0          |
 | service.port | Service port | 8080            |
 | ingress.enabled | Enable or not Ingress | `false`         |
 | tolgee.persistence.enabled | Activate or not postgres persistence | `true`          |
