@@ -90,7 +90,6 @@ postgresql:
         username: tolgee
         password: tolgee_password # MUST be replaced with some secret password! Don't use this in production
         secret:
-            enabled: false
             name: secretName
             passwordKey: password
             usernameKey: username
@@ -109,3 +108,10 @@ tolgee:
         enabled: true
         storageClass: ''
         size: 1Gi
+    smtp:
+        secret:
+            name: secretName
+            hostKey: smtphost
+            portKey: smtpport
+            usernameKey: smtpuser
+            passwordKey: smtppassword

@@ -51,7 +51,10 @@ spec:
               value: 'false'
             - name: "tolgee.postgres-autostart.enabled"
               value: 'false'
-            {{- if .Values.postgresql.auth.secret.enabled }}
+            - name: "tolgee.smtp.auth"
+              value: 'true'
+            - name: "tolgee.smtp.ssl-enabled"
+              value: 'true'
             - name: "spring.datasource.host"
               valueFrom:
                 secretKeyRef:
@@ -74,22 +77,26 @@ spec:
                   key: {{ .Values.postgresql.auth.secret.passwordKey }}
             - name: "spring.datasource.url"
               value: jdbc:postgresql://${spring.datasource.host}:5432/${spring.datasource.database}
-            {{- else }}
-            - name: "spring.datasource.url"
-              value: 'jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.database }}'
-            - name: "spring.datasource.username"
-              value: {{ .Values.postgresql.auth.username }}
-            - name: "spring.datasource.password"
-              value: {{ .Values.postgresql.auth.password }}
-            {{- end }}
-            - name: "spring.web.cors.allow-credentials"
-              value: "true"
-            - name: "spring.web.cors.allowed-origins"
-              value: "*"
-            - name: "spring.web.cors.allowed-methods"
-              value: "GET,POST,PUT,DELETE,HEAD,OPTIONS"
-            - name: "spring.web.cors.allowed-headers"
-              value: "*"
+            - name: "tolgee.smtp.host"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.smtp.secret.name }}
+                  key: {{ .Values.tolgee.smtp.secret.hostKey }}
+            - name: "tolgee.smtp.port"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.smtp.secret.name }}
+                  key: {{ .Values.tolgee.smtp.secret.portKey }}
+            - name: "tolgee.smtp.username"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.smtp.secret.name }}
+                  key: {{ .Values.tolgee.smtp.secret.usernameKey }}
+            - name: "tolgee.smtp.password"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.smtp.secret.name }}
+                  key: {{ .Values.tolgee.smtp.secret.passwordKey }}
             {{- range $key, $value := .Values.tolgee.env }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
