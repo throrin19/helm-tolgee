@@ -111,7 +111,7 @@ tolgee:
     smtp:
         secret:
             name: secretName
-            hostKey: smtp_host
-            portKey: smtp_port
-            usernameKey: smtp_user
-            passwordKey: smtp_password
+            hostKey: smtpHost
+            portKey: smtpPort
+            usernameKey: smtpUser
+            passwordKey: smtpPassword
