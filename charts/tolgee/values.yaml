@@ -115,3 +115,7 @@ tolgee:
             portKey: smtpPort
             usernameKey: smtpUser
             passwordKey: smtpPassword
+    authentication:
+        secret:
+            name: secretName
+            jwtSecretKey: jwtSecret

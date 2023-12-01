@@ -97,6 +97,11 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.tolgee.smtp.secret.name }}
                   key: {{ .Values.tolgee.smtp.secret.passwordKey }}
+            - name: "tolgee.authentication.jwt-secret"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.authentication.secret.name }}
+                  key: {{ .Values.tolgee.authentication.secret.jwtSecretKey }}
             {{- range $key, $value := .Values.tolgee.env }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
