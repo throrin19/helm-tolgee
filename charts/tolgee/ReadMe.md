@@ -26,7 +26,7 @@ helm install tolgee tolgee/tolgee \
 | image.tag                           | Tolgee version                                            | 3.37.0          |
 | service.port                        | Service port                                              | 8080            |
 | ingress.enabled                     | Enable or not Ingress                                     | `false`         |
-| tolgee.persistence.enabled          | Activate or not postgres persistence                      | `true`          |
+| tolgee.persistence.enabled          | Activate or not postgres persistence                      | `false`         |
 | tolgee.persistence.storageClass     | PVC Storage class                                         | -               |
 | tolgee.persistence.size             | PVC size                                                  | 1Gi             |
 | postgresql.auth.secret              | Secret file parameters to use                             | -               |

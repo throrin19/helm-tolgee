@@ -105,7 +105,7 @@ tolgee:
         enabled: false
         domains: []
     persistence:
-        enabled: true
+        enabled: false
         storageClass: ''
         size: 1Gi
     smtp:
