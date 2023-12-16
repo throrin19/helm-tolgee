@@ -119,3 +119,27 @@ tolgee:
         secret:
             name: secretName
             jwtSecretKey: jwtSecret
+        google:
+            enabled: false
+            clientId: ''
+            clientSecretName: ''
+            clientSecretKey: ''
+            workspaceDomain: ''
+            authorizationUrl: 'https://oauth2.googleapis.com/token'
+            userUrl: 'https://www.googleapis.com/oauth2/v3/userinfo'
+        github:
+            enabled: false
+            clientId: ''
+            clientSecretName: ''
+            clientSecretKey: ''
+            authorizationUrl: 'https://github.com/login/oauth/access_token'
+            userUrl: 'https://api.github.com/user'
+        oauth2:
+            enabled: false
+            clientId: ''
+            clientSecretName: ''
+            clientSecretKey: ''
+            scopes: 'openid email profile'
+            authorizationUrl: ''
+            tokenUrl: ''
+            userUrl: ''

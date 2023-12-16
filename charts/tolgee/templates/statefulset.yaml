@@ -102,6 +102,53 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.tolgee.authentication.secret.name }}
                   key: {{ .Values.tolgee.authentication.secret.jwtSecretKey }}
+            {{- if .Values.tolgee.authentication.google.enabled -}}
+            - name: "tolgee.authentication.google.client-id"
+              value: {{ .Values.tolgee.authentication.google.clientId }}
+            - name: "tolgee.authentication.google.client-secret"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.authentication.google.clientSecretName }}
+                  key: {{ .Values.tolgee.authentication.google.clientSecretKey }}
+            - name: "tolgee.authentication.google.workspace-domain"
+              value: {{ .Values.tolgee.authentication.google.workspaceDomain }}
+            - name: "tolgee.authentication.google.authorization-url"
+              value: {{ .Values.tolgee.authentication.google.authorizationUrl }}
+            - name: "tolgee.authentication.google.user-url"
+              value: {{ .Values.tolgee.authentication.google.userUrl }}
+            {{- end -}}
+            {{- if .Values.tolgee.authentication.github.enabled -}}
+            - name: "tolgee.authentication.github.client-id"
+              value: {{ .Values.tolgee.authentication.github.clientId }}
+            - name: "tolgee.authentication.github.client-secret"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.authentication.github.clientSecretName }}
+                  key: {{ .Values.tolgee.authentication.github.clientSecretKey }}
+            - name: "tolgee.authentication.github.authorization-url"
+              value: {{ .Values.tolgee.authentication.github.authorizationUrl }}
+            - name: "tolgee.authentication.github.user-url"
+              value: {{ .Values.tolgee.authentication.github.userUrl }}
+            {{- end -}}
+            {{- if .Values.tolgee.authentication.oauth2.enabled -}}
+            - name: "tolgee.authentication.oauth2.client-id"
+              value: {{ .Values.tolgee.authentication.oauth2.clientId }}
+            - name: "tolgee.authentication.oauth2.client-secret"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tolgee.authentication.oauth2.clientSecretName }}
+                  key: {{ .Values.tolgee.authentication.oauth2.clientSecretKey }}
+            - name: "tolgee.authentication.oauth2.authorization-url"
+              value: {{ .Values.tolgee.authentication.oauth2.authorizationUrl }}
+            - name: "tolgee.authentication.oauth2.user-url"
+              value: {{ .Values.tolgee.authentication.oauth2.userUrl }}
+            - name: "tolgee.authentication.oauth2.scopes"
+              value: {{ .Values.tolgee.authentication.oauth2.scopes }}
+            - name: "tolgee.authentication.oauth2.token-url"
+              value: {{ .Values.tolgee.authentication.oauth2.tokenUrl }}
+            - name: "tolgee.authentication.oauth2.user-url"
+              value: {{ .Values.tolgee.authentication.oauth2.userUrl }}
+            {{- end -}}
             {{- range $key, $value := .Values.tolgee.env }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
