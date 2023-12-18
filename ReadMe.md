@@ -12,7 +12,7 @@ This chart provide :
 ## Quick Start
 
 ```bash
-helm repo add tolgee https://Sisu-Tech.github.io/helm-tolgee/
+helm repo add tolgee https://throrin19.github.io/helm-tolgee/
 
 helm install tolgee tolgee/tolgee \
 --set postgresql.auth.password=moreSecurePassword
