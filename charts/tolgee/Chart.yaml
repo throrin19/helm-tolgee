@@ -2,8 +2,8 @@ apiVersion: v2
 name: tolgee
 description: This is the unofficial helm package for Tolgee.io project.
 type: application
-version: 0.4.43
-appVersion: "3.37.0"
+version: 0.4.44
+appVersion: "3.41.0"
 icon: https://tolgee.io/img/tolgeeLogo.svg
 dependencies:
   - name: postgresql

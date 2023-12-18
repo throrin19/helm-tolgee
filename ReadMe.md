@@ -17,7 +17,6 @@ helm repo add tolgee https://throrin19.github.io/helm-tolgee/
 helm install tolgee tolgee/tolgee \
 --set postgresql.auth.password=moreSecurePassword
 ```
-
 ## Values
 
 | Value | Description | Default Value   |
