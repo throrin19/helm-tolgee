@@ -2,7 +2,7 @@ apiVersion: v2
 name: tolgee
 description: This is the unofficial helm package for Tolgee.io project.
 type: application
-version: 0.4.44
+version: 0.4.45
 appVersion: "3.41.0"
 icon: https://tolgee.io/img/tolgeeLogo.svg
 dependencies:

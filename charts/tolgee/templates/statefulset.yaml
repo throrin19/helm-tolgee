@@ -102,7 +102,7 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.tolgee.authentication.secret.name }}
                   key: {{ .Values.tolgee.authentication.secret.jwtSecretKey }}
-            {{- if .Values.tolgee.authentication.google.enabled -}}
+            {{- if .Values.tolgee.authentication.google.enabled }}
             - name: "tolgee.authentication.google.client-id"
               value: {{ .Values.tolgee.authentication.google.clientId }}
             - name: "tolgee.authentication.google.client-secret"
@@ -116,8 +116,8 @@ spec:
               value: {{ .Values.tolgee.authentication.google.authorizationUrl }}
             - name: "tolgee.authentication.google.user-url"
               value: {{ .Values.tolgee.authentication.google.userUrl }}
-            {{- end -}}
-            {{- if .Values.tolgee.authentication.github.enabled -}}
+            {{- end }}
+            {{- if .Values.tolgee.authentication.github.enabled }}
             - name: "tolgee.authentication.github.client-id"
               value: {{ .Values.tolgee.authentication.github.clientId }}
             - name: "tolgee.authentication.github.client-secret"
@@ -129,8 +129,8 @@ spec:
               value: {{ .Values.tolgee.authentication.github.authorizationUrl }}
             - name: "tolgee.authentication.github.user-url"
               value: {{ .Values.tolgee.authentication.github.userUrl }}
-            {{- end -}}
-            {{- if .Values.tolgee.authentication.oauth2.enabled -}}
+            {{- end }}
+            {{- if .Values.tolgee.authentication.oauth2.enabled }}
             - name: "tolgee.authentication.oauth2.client-id"
               value: {{ .Values.tolgee.authentication.oauth2.clientId }}
             - name: "tolgee.authentication.oauth2.client-secret"
@@ -148,7 +148,7 @@ spec:
               value: {{ .Values.tolgee.authentication.oauth2.tokenUrl }}
             - name: "tolgee.authentication.oauth2.user-url"
               value: {{ .Values.tolgee.authentication.oauth2.userUrl }}
-            {{- end -}}
+            {{- end }}
             {{- range $key, $value := .Values.tolgee.env }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
